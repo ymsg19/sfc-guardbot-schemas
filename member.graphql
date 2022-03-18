@@ -41,6 +41,10 @@ type MemberEdge {
   cursor: Cursor!
 }
 
+type VerificationResult {
+  invite_code: String!
+}
+
 type Query {
   node(id: ID!): Node
   nodes(ids: [ID!]!): [Node]!
@@ -50,7 +54,7 @@ type Query {
 
 type Mutation {
   createMember(input: MemberInput!): Member!
-  verifyMember(input: MemberVerificationInput!): Member!
+  verifyMember(input: MemberVerificationInput!): VerificationResult!
   requestMemberVerificationToken(id: ID!): Member!
   deleteMember(id: ID!): Boolean!
 }
